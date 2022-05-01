@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  front:
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/app
