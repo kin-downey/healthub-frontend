@@ -1,47 +1,51 @@
 <template>
-  <line-example
-    :chart-id="chartId"
-    :width="width"
-    :height="height"
-    :css-classes="cssClasses"
-    :styles="styles"
-    :plugins="plugins"
-  />
+  <v-app>
+    <v-main>
+      <line-example
+        :chart-id="chartId"
+        :width="width"
+        :height="height"
+        :css-classes="cssClasses"
+        :styles="styles"
+        :plugins="plugins"
+      />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import LineExample from './LineExample'
+import LineExample from "./LineExample";
 
 export default {
-  name: 'LineChart',
+  name: "LineChart",
   components: {
-    LineExample
+    LineExample,
   },
   props: {
     chartId: {
       type: String,
-      default: 'line-chart'
+      default: "line-chart",
     },
     width: {
       type: Number,
-      default: 400
+      default: 400,
     },
     height: {
       type: Number,
-      default: 400
+      default: 400,
     },
     cssClasses: {
-      default: '',
-      type: String
+      default: "",
+      type: String,
     },
     styles: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     plugins: {
       type: Array,
-      default: () => {}
-    }
-  }
-}
+      default: () => {},
+    },
+  },
+};
 </script>
