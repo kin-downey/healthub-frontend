@@ -5,12 +5,21 @@
 </template>
 
 <script>
+import router from '../router';
 
 export default {
   name: "Home",
+  mounted() {
+    this.checkToken();
+  },
   components: {
   },
   methods: {
+    checkToken(){
+      if (this.$store.state.access === ""){
+        router.push("/auth");
+      }
+    }
   }
 };
 </script>

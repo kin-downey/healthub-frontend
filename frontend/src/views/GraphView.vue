@@ -14,12 +14,16 @@
 </template>
 
 <script>
+import router from "../router"
 import LineExample from "./LineExample";
 
 export default {
   name: "LineChart",
   components: {
     LineExample,
+  },
+  mounted() {
+    this.checkToken();
   },
   props: {
     chartId: {
@@ -45,6 +49,13 @@ export default {
     plugins: {
       type: Array,
       default: () => {},
+    },
+  },
+  methods: {
+    checkToken() {
+      if (this.$store.state.access === "") {
+        router.push("/auth");
+      }
     },
   },
 };
