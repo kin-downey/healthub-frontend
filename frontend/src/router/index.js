@@ -28,10 +28,16 @@ const routes = [
     component: Graph,
   },
   {
-    path: "/auth",
-    name: "Auth",
+    path: "/login",
+    name: "Login",
     component: () =>
-      import("../views/Auth.vue"),
+      import("../views/Login.vue"),
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: () =>
+      import("../views/Signup.vue"),
   },
   {
     path: "/home",
