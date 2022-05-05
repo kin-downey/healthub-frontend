@@ -35,6 +35,7 @@ export default {
     menus: [
       { title: "トップページ", icon: "mdi-web", url: "/" },
       { title: "ホーム", icon: "mdi-home", url: "/home" },
+      { title: "データ", icon: "mdi-chart-line", url: "/graph"},
       { title: "フレンド", icon: "mdi-account-group", url: "/friends" },
       { title: "About", icon: "mdi-information-outline", url: "/about" },
     ],
