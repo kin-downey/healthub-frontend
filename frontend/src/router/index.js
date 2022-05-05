@@ -44,6 +44,12 @@ const routes = [
     name: "Home",
     component: Home,
   },
+  {
+    path: "/register",
+    name: "Register",
+    component: () =>
+      import("../views/WaitEmail.vue"),
+  }
 ];
 
 const router = new VueRouter({
