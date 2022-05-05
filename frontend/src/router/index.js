@@ -32,6 +32,11 @@ const routes = [
     component: () =>
       import("../views/Auth.vue"),
   },
+  {
+    path: "/home",
+    name: "Home",
+    component: Home,
+  },
 ];
 
 const router = new VueRouter({
