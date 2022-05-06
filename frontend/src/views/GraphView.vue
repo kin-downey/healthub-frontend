@@ -54,7 +54,7 @@ export default {
   methods: {
     checkToken() {
       if (this.$store.state.access === "") {
-        router.push("/auth");
+        router.push("/login");
       }
     },
   },
