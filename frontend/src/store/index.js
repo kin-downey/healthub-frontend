@@ -13,11 +13,13 @@ export default new Vuex.Store({
     access: "",
     refresh: "",
     pre_registed_email: "",
+    is_login: "",
   },
   mutations: {
     set_token(state, data) {
       state.access = data["access"];
       state.refresh = data["refresh"];
+      state.is_login = true
     },
     set_pre_email(state, data){
       state.pre_registed_email = data;

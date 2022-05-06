@@ -3,9 +3,9 @@
     <div v-if="is_login">
       <v-navigation-drawer app v-model="drawer">
         <v-list-item style="background-color: #E64A19;">
-          <v-list-item-title class="title" style="background-color: #FF7043;"> Healthub </v-list-item-title>
+          <v-list-item-title class="title white--text"> Healthub </v-list-item-title>
           <v-btn icon @click="drawer = false">
-            <v-icon color="">mdi-chevron-left</v-icon>
+            <v-icon color="white">mdi-chevron-left</v-icon>
           </v-btn>
         </v-list-item>
         <v-divider />
@@ -24,26 +24,6 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
-        <v-row>
-          <v-col align="center" cols="11">
-            <v-btn
-              @click="drawer = false"
-              to="/signup"
-              color="#EF5350"
-              block
-              class="white--text mx-2 mt-12 my-2"
-              >無料で始めましょう</v-btn
-            >
-            <v-btn
-              @click="drawer = false"
-              to="/login"
-              block
-              outlined
-              class="mx-2"
-              >ログイン</v-btn
-            >
-          </v-col>
-        </v-row>
       </v-navigation-drawer>
     </div>
     <div v-else>
@@ -110,7 +90,6 @@ import router from "./router"
 export default {
   name: "App",
   data: () => ({
-    is_login: false,
     drawer: false,
     public_menus: [
       { title: "トップページ", icon: "mdi-web", url: "/" },
@@ -139,6 +118,11 @@ export default {
   mounted() {
     this.checkToken();
   },
+  computed: {
+    is_login(){
+      return this.$store.state.is_login;
+    }
+  },
   methods: {
     go_top(){
       router.push("/")
@@ -146,7 +130,9 @@ export default {
     checkToken() {
       if (this.$store.state.access != "") {
         this.is_login = true;
+        return this.is_login
       }
+      return this.is_login
     },
   },
 };
