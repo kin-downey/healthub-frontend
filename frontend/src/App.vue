@@ -2,10 +2,10 @@
   <v-app style="background-color: #CFD8DC;">
     <div v-if="is_login">
       <v-navigation-drawer app v-model="drawer">
-        <v-list-item>
-          <v-list-item-title class="title"> Healthub </v-list-item-title>
+        <v-list-item style="background-color: #FF7043;">
+          <v-list-item-title class="title" style="background-color: #FF7043;"> Healthub </v-list-item-title>
           <v-btn icon @click="drawer = false">
-            <v-icon>mdi-chevron-left</v-icon>
+            <v-icon color="">mdi-chevron-left</v-icon>
           </v-btn>
         </v-list-item>
         <v-divider />
@@ -48,10 +48,10 @@
     </div>
     <div v-else>
       <v-navigation-drawer app v-model="drawer">
-        <v-list-item>
-          <v-list-item-title class="title"> Healthub </v-list-item-title>
+        <v-list-item style="background-color: #FF7043;">
+          <v-list-item-title class="title white--text"> Healthub </v-list-item-title>
           <v-btn icon @click="drawer = false">
-            <v-icon>mdi-chevron-left</v-icon>
+            <v-icon color="white">mdi-chevron-left</v-icon>
           </v-btn>
         </v-list-item>
         <v-divider />
@@ -95,7 +95,7 @@
 
     <v-app-bar app color="#E64A19">
       <v-app-bar-nav-icon @click="drawer = true" color="white" />
-      <v-toolbar-title class="font-weight-bold white--text"
+      <v-toolbar-title class="font-weight-bold white--text" @click="go_top()"
         >Healthub</v-toolbar-title
       >
     </v-app-bar>
@@ -106,6 +106,7 @@
 </template>
 
 <script>
+import router from "./router"
 export default {
   name: "App",
   data: () => ({
@@ -139,6 +140,9 @@ export default {
     this.checkToken();
   },
   methods: {
+    go_top(){
+      router.push("/")
+    },
     checkToken() {
       if (this.$store.state.access != "") {
         this.is_login = true;
