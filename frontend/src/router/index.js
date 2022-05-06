@@ -61,6 +61,12 @@ const routes = [
     name: "RegisterError",
     component: () =>
       import("../views/RegisterError.vue"),
+  },
+  {
+    path: "/friends",
+    name: "Friends",
+    component: () =>
+      import("../views/Friends.vue"),
   }
 ];
 
