@@ -5,6 +5,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import router from "../router";
 
+import createPersistedstate from 'vuex-persistedstate'
+
 Vue.use(Vuex);
 const base_url = "http://localhost:8000";
 
@@ -115,4 +117,5 @@ export default new Vuex.Store({
     },
   },
   modules: {},
+  plugins: [createPersistedstate({ key: 'healthub' })],
 });
