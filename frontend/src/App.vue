@@ -130,9 +130,7 @@ export default {
     checkToken() {
       if (this.$store.state.access != "") {
         this.is_login = true;
-        return this.is_login
       }
-      return this.is_login
     },
   },
 };

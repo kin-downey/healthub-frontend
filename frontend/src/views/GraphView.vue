@@ -23,6 +23,7 @@ export default {
     LineExample,
   },
   mounted() {
+    this.refresh_token();
     this.checkToken();
   },
   props: {
@@ -57,6 +58,9 @@ export default {
         router.push("/login");
       }
     },
+    refresh_token(){
+      this.$store.dispatch("refresh_token", this.$store.state.refresh)
+    }
   },
 };
 </script>

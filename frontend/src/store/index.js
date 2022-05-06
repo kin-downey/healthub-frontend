@@ -18,6 +18,9 @@ export default new Vuex.Store({
     is_login: "",
   },
   mutations: {
+    set_access_token(state, data){
+      state.access = data["access"];
+    },
     set_token(state, data) {
       state.access = data["access"];
       state.refresh = data["refresh"];
@@ -28,6 +31,21 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    refresh_token(context, refresh){
+      if (refresh != ""){
+        const url = base_url + "/account/auth/jwt/refresh/"
+        var data = new FormData();
+        data.append("refresh", refresh)
+        axios
+        .post(url, data)
+        .then(function(response){
+          context.commit("set_access_token", response.data)
+        })
+        .catch(function(error){
+          console.log(error);
+        })
+      }
+    },
     login(context, credentials) {
       var FormData = require("form-data");
       var data = new FormData();
@@ -35,7 +53,6 @@ export default new Vuex.Store({
       data.append("password", credentials["password"]);
 
       const url = base_url + "/api/auth/jwt/create/";
-      console.log(data);
       axios
         .post(url, data)
         .then(function (response) {
