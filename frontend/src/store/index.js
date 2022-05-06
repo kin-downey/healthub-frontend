@@ -51,8 +51,8 @@ export default new Vuex.Store({
         .then(function(response){
           context.commit("set_access_token", response.data)
         })
-        .catch(function(error){
-          console.log(error);
+        .catch(function(){
+          context.commit("logout")
         })
       }
     },
