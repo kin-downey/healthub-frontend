@@ -2,7 +2,7 @@
   <v-app style="background-color: #CFD8DC;">
     <div v-if="is_login">
       <v-navigation-drawer app v-model="drawer">
-        <v-list-item style="background-color: #FF7043;">
+        <v-list-item style="background-color: #E64A19;">
           <v-list-item-title class="title" style="background-color: #FF7043;"> Healthub </v-list-item-title>
           <v-btn icon @click="drawer = false">
             <v-icon color="">mdi-chevron-left</v-icon>
@@ -48,7 +48,7 @@
     </div>
     <div v-else>
       <v-navigation-drawer app v-model="drawer">
-        <v-list-item style="background-color: #FF7043;">
+        <v-list-item style="background-color: #E64A19;">
           <v-list-item-title class="title white--text"> Healthub </v-list-item-title>
           <v-btn icon @click="drawer = false">
             <v-icon color="white">mdi-chevron-left</v-icon>
