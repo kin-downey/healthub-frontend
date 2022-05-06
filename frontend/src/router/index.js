@@ -49,6 +49,18 @@ const routes = [
     name: "Register",
     component: () =>
       import("../views/WaitEmail.vue"),
+  },
+  {
+    path: "/registed",
+    name: "Registed",
+    component: () =>
+      import("../views/Registed.vue"),
+  },
+  {
+    path: "/registererror",
+    name: "RegisterError",
+    component: () =>
+      import("../views/RegisterError.vue"),
   }
 ];
 

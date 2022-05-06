@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="background-color: #CFD8DC;">
     <div v-if="is_login">
       <v-navigation-drawer app v-model="drawer">
         <v-list-item>
