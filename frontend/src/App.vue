@@ -1,9 +1,11 @@
 <template>
-  <v-app style="background-color: #CFD8DC;">
+  <v-app style="background-color: #cfd8dc">
     <div v-if="is_login">
       <v-navigation-drawer app v-model="drawer">
-        <v-list-item style="background-color: #E64A19;">
-          <v-list-item-title class="title white--text"> Healthub </v-list-item-title>
+        <v-list-item style="background-color: #e64a19">
+          <v-list-item-title class="title white--text">
+            Healthub
+          </v-list-item-title>
           <v-btn icon @click="drawer = false">
             <v-icon color="white">mdi-chevron-left</v-icon>
           </v-btn>
@@ -24,12 +26,21 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
+        <v-row>
+          <v-col align="center" cols="11">
+            <v-btn color="error" @click="logout()" block outlined class="mx-2"
+              >ログアウト</v-btn
+            >
+          </v-col>
+        </v-row>
       </v-navigation-drawer>
     </div>
     <div v-else>
       <v-navigation-drawer app v-model="drawer">
-        <v-list-item style="background-color: #E64A19;">
-          <v-list-item-title class="title white--text"> Healthub </v-list-item-title>
+        <v-list-item style="background-color: #e64a19">
+          <v-list-item-title class="title white--text">
+            Healthub
+          </v-list-item-title>
           <v-btn icon @click="drawer = false">
             <v-icon color="white">mdi-chevron-left</v-icon>
           </v-btn>
@@ -86,7 +97,7 @@
 </template>
 
 <script>
-import router from "./router"
+import router from "./router";
 export default {
   name: "App",
   data: () => ({
@@ -115,23 +126,23 @@ export default {
       },
     ],
   }),
-  mounted() {
-    this.checkToken();
-  },
   computed: {
-    is_login(){
+    is_login() {
       return this.$store.state.is_login;
-    }
+    },
   },
   methods: {
-    go_top(){
-      router.push("/")
+    go_top() {
+      router.push("/");
     },
     checkToken() {
       if (this.$store.state.access != "") {
         this.is_login = true;
       }
     },
+    logout(){
+      this.$store.dispatch("logout")
+    }
   },
 };
 </script>

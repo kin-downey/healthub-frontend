@@ -28,9 +28,19 @@ export default new Vuex.Store({
     },
     set_pre_email(state, data){
       state.pre_registed_email = data;
-    }
+    },
+    logout(state){
+      state.access = ""
+      state.refresh = ""
+      state.pre_registed_email = ""
+      state.is_login = false
+    },
   },
   actions: {
+    logout(context){
+      router.push("/")
+      context.commit("logout")
+    },
     refresh_token(context, refresh){
       if (refresh != ""){
         const url = base_url + "/account/auth/jwt/refresh/"
@@ -52,7 +62,7 @@ export default new Vuex.Store({
       data.append("email", credentials["email"]);
       data.append("password", credentials["password"]);
 
-      const url = base_url + "/api/auth/jwt/create/";
+      const url = base_url + "/account/auth/jwt/create/";
       axios
         .post(url, data)
         .then(function (response) {
@@ -82,7 +92,7 @@ export default new Vuex.Store({
       data.append("re_password", credentials["re_password"]);
 
 
-      const url = base_url + "/api/auth/users/";
+      const url = base_url + "/account/auth/users/";
       axios
         .post(url, data)
         .then(function (response) {

@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     checkToken() {
-      if (this.$store.state.access === "") {
+      if (!this.$store.state.is_login) {
         router.push("/login");
       }
     },
